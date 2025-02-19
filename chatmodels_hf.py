@@ -4,12 +4,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 llm = HuggingFaceEndpoint(
-    repo_id = "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+    repo_id= "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
     task = "text-generation"
 )
 
 model = ChatHuggingFace(llm = llm)
-res = model.invoke("what is the capital of india")
 
-print(res.content)
+result = model.invoke("who is rohit sharma")
 
+print(result)

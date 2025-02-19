@@ -1,12 +1,10 @@
 from langchain_huggingface import HuggingFaceEmbeddings
+from dotenv import load_dotenv
 
-embedding = HuggingFaceEmbeddings(model_name = 'sentence-transformers/all-MiniLM-L6-v2')
+load_dotenv()
 
-documents = [
-    "Delhi is the capital of India",
-    "Kolkata is the capital of West Bengal",
-    "Paris is the capital of France"
-]
+model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
-vector = embedding.embed_documents(documents)
+vector = model.embed_query("what is capital of india")
+
 print(str(vector))
